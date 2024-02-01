@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500&family=Inter:wght@700;800&family=Lalezar&family=Merriweather:wght@300;700;900&family=Roboto&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+  font-family: "Inter Tight", sans-serif;
+  font-family: "Lalezar", system-ui;
+  font-family: "Merriweather", serif;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url("images/background.png");
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  height: 45rem;
+  width: 27rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  background-color: rgba(152, 148, 155, 0.1);
+  opacity: 1;
+  align-items: center;
+  border-radius: 1rem;
+  padding-top: 2rem;
+}
+
+.main_button {
+  display: flex;
+  height: 2.5rem;
+  width: 15rem;
+  align-items: center;
+  gap: 0;
+  border-radius: 20px;
+  background-color: #0080809e;
+}
+
+#register_btn {
+  height: 1.6rem;
+  width: 10rem;
+  background-color: #008080;
+  border-radius: 20px;
+  color: white;
+  border: none;
+  margin-top: 0.2rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+#login_btn {
+  height: 1.6rem;
+  width: 10rem;
+  /* background-color: #008080; */
+  background: transparent;
+  border-radius: 20px;
+  color: white;
+  border: none;
+}
+
+#login_btn a{
+  text-decoration: none;
+  color: white;
+}
+
+#subtitle {
+  color: rgb(81, 73, 73);
+  font-size: 1rem;
+}
+
+.input_container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+input {
+  height: 2rem;
+  border-radius: 20px;
+  padding-left: 1rem;
+  border: 2px solid #0080809e;
+}
+
+.passfield {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  width: 20rem;
+  border: 2px solid #0080809e;
+  border-radius: 20px;
+  background-color: white;
+}
+
+#crackpass {
+  border: none;
+  outline: none;
+}
+#para {
+  font-size: small;
+  padding-top: 1rem;
+}
+.checkbox {
+  display: flex;
+  gap: 5rem;
+}
+
+#check_input {
+  height: 1rem;
+  width: 1rem;
+}
+
+.checkit {
+  display: flex;
+
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.r-btn {
+  margin-top: 2%;
+  height: 2rem;
+  width: 10rem;
+  background-color: #008080;
+  color: white;
+  border-radius: 20px;
+  margin-left: 5rem;
+  border: none;
+}
+
+/* Media query */
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .register {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .main_button {
+    width: auto;
+  }
+
+  .input_container {
+    padding: 0 15px;
+  }
+
+  .passfield {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .register {
+    width: 90%;
+    height: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+  }
+
+  .main_button {
+    flex-direction: row;
+    width: 60%;
+  }
+
+  #register_btn,
+  #login_btn {
+    width: 100%;
+  }
+
+  .input_container {
+    padding: 0 10px;
+  }
+
+  .passfield {
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .r-btn {
+    margin-left: 0;
+    width: 100%;
+  }
+}
