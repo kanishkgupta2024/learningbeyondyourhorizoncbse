@@ -1,14 +1,112 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="text-center mt-4 mb-4">
+<!-- <div class="text-center mt-4">
     <h2 class="text-muted">Register</h2>
 </div>
-<div class="col-md-6 offset-md-3 mb-4">
+
+<div class="form-control-lg col-md-6 offset-md-3 mb-5 mt-4 h-100 d-inline-block">
+    
     <form action="{% url 'register' %}" method="POST">
+        
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-secondary">Register</button>
+    
+        <div class="d-grid gap-2 d-md-flex mt-4 justify-content-center">
+            <button class="btn btn-secondary me-md-2" type="submit">Register</button>
+          </div>
     </form>
-</div>
+</div>  -->
+<center>
+    <section class="register">
+      <h5>Welcome to LBYH-CBSE..!</h5>
+      <br />
+      <div class="main_button">
+        <!-- <button id="register_btn">Register</button>
+        <button id="login_btn"><a href="login.html">Login</a></button> -->
+        <button id="login_btn"><a href="{% url 'login' %}">Login</a></button>
+        <button id="register_btn">Register</button>
+      </div>
+      <br />
+      <p id="subtitle"><b>Are you ready to take your learning to the next level?</b> <br>
+        Register now and get access to courses your intersted in.</p>
+<form method="post" action="{% url 'register' %}" class="input_container">
+    {% csrf_token %}
+
+    <div class="form-group field">
+        <label for="id_name"><b>Name</b></label>
+        <input type="text" name="name" id="id_name" class="form-control" placeholder="Enter your Full Name" required>
+        {% for error in form.name.errors %}
+            <p class="text-danger">{{ error }}</p>
+        {% endfor %}
+    </div>
+
+
+    <div class="form-group">
+        <label for="id_phone"><b>Phone Number</b></label>
+        <input type="text" name="phone" id="id_phone" class="form-control" placeholder="Enter your Phone No" required>
+        {% for error in form.phone.errors %}
+            <p class="text-danger">{{ error }}</p>
+        {% endfor %}
+    </div>
+
+
+    <div class="form-group field">
+        <label for="id_username"><b>Username</b></label>
+        <input type="text" placeholder="Enter your Username" class="form-control " required />
+        {% for error in form.username.errors %}
+            <p class="text-danger">{{ error }}</p>
+        {% endfor %}
+    </div>
+
+    
+
+    
+
+    <div class="form-group">
+        <label for="id_email"><b>Email</b></label>
+        <input type="email" name="email" id="id_email" class="form-control" placeholder="Email" required>
+        {% for error in form.email.errors %}
+            <p class="text-danger">{{ error }}</p>
+        {% endfor %}
+    </div>
+    <label for="id_password1"><b>Password</b></label>
+    <div class="form-group passfield">
+        
+        <input type="password" name="password1" id="crackpass" class="form-control" placeholder="Create your Password" required>
+        <span
+              ><i onclick="myFunction()" class="fa-solid fa-eye-slash"></i
+            ></span>
+        {% for error in form.password1.errors %}
+            <p class="text-danger">{{ error }}</p>
+        {% endfor %}
+    </div>
+    <label for="id_password2"><b>Confirm Password</b></label>
+    <div class="form-group passfield">
+        
+        <input type="password" name="password2" id="crackpass" class="form-control" placeholder="Confirm your Password" required>
+        <span
+              ><i onclick="myFunction()" class="fa-solid fa-eye-slash"></i
+            ></span></input>
+        
+    </div>
+    {% for error in form.password2.errors %}
+            <p class="text-danger">{{ error }}</p>
+        {% endfor %}
+
+    <input class="r-btn" type="submit" />
+</form>
+</section>
+</center>
+<script>
+  function myFunction() {
+    var x = document.getElementById("crackpass");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+</script>
+
 {% endblock content %}

@@ -36,6 +36,8 @@ def logout_user(request):
 def register_user(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
+        print(form.errors)
+
         if form.is_valid():
             form.save()
             username = form.cleaned_data['username']
@@ -47,10 +49,10 @@ def register_user(request):
             form = SignUpForm(request.POST)
     else:
         form = SignUpForm()
-    context = {
+   
+    return render(request, 'authenticate/register.html',{
         'form': form,
-    }
-    return render(request, 'authenticate/register.html', context)
+    })
 
 def edit_profile(request):
     if request.method == 'POST':

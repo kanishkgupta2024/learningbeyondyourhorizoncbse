@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="text-center mt-4 text-muted">
-    <h2>User Login</h2>
-</div>
-<div class="col-md-6 offset-md-3">
+
+
+<center>
     {% if messages %}
     {% for message in messages %}
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -16,18 +15,58 @@
     </div>
     {% endfor %}
     {% endif %}
-    <form action="{% url 'login' %}" method="POST">
-        {% csrf_token %}
-        <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" class="form-control" name="username" id="username" placeholder="Enter Password">
-        </div>
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password">
-        </div>
-        <button type="submit" class="btn btn-secondary mb-3 mt-2">Login</button>
-        <p>Forgot password ??<a href="{% url 'password_reset' %}"> Click Here</a> To Reset</p>
-    </form>
-</div>
+    <section class="login">
+      <h5>Welcome to LBYH-CBSE..!</h5>
+      <br />
+      <div class="main_button">
+        
+        <button id="login_btn2">Login</button>
+        <button id="register_btn2"><a href="{% url 'register' %}">Register</a></button>
+      </div>
+      <br />
+      <p id="subtitle"><b>Welcome back!</b> <br> Login to continue your learning adventure.</p>
+     
+        <form action="{% url 'login' %}" method="POST" class="input_container">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username"><b>Username</b></label>
+                <input type="text" class="form-control" name="username" id="username" placeholder="Enter your User Name" required>
+            </div>
+            <label><b>Password</b></label>
+            <div class="passfield">
+              <input
+                type="password"
+                id="crackpass"
+                placeholder="Enter your Password"
+                required
+              />
+              <span
+                ><i onclick="myFunction()" class="fa-solid fa-eye-slash pe-2"></i
+              ></span>
+            </div>
+            
+            <div class="checkbox">
+                <div class="checkit">
+                  <input type="checkbox" id="check_input" />
+                  <p id="para">Rememebr me</p>
+                </div>
+                <a href="{% url 'password_reset' %}"><p id="para">Forgot Password?</p></a>
+              </div>
+              <input class="r-btn" type="submit" />
+        </form>
+        
+      </div>
+    </section>
+  </center>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("crackpass");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+    </script>
+   
 {% endblock content %}
