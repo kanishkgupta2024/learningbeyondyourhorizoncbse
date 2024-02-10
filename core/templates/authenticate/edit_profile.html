@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="text-center mt-4 mb-4">
+<!-- <div class="text-center mt-4 mb-4">
     <h2 class="text-muted">Edit Profile</h2>
 </div>
 <div class="col-md-6 offset-md-3 mb-4">
@@ -11,5 +11,61 @@
         <button type="submit" class="btn btn-secondary mb-3">Update</button>
         <p><a href="{% url 'change_password' %}">Click Here</a> To Change Your Password </p>
     </form>
-</div>
+</div> -->
+<center>
+    <section class="register">
+      <h5>Welcome to LBYH-CBSE..!</h5>
+      <br />
+      <div class="main_button">
+        <!-- <button id="register_btn">Register</button>
+        <button id="login_btn"><a href="login.html">Login</a></button> -->
+        
+        <button id="register_btn">Edit Profile</button>
+      </div>
+      <br />
+      <p id="subtitle"><b>Are you ready to take your learning to the next level?</b> <br>
+        Register now and get access to courses your intersted in.</p>
+        <form action="{% url 'edit_profile' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_username"><b>Username</b></label>
+                <input type="text" name="username" id="id_username" class="form-control" value="{{ user.username }}" required>
+                {% for error in form.username.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="id_email"><b>Email</b></label>
+                <input type="email" name="email" id="id_email" class="form-control"value="{{ user.email }}" required>
+                {% for error in form.email.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="id_name">Name</label>
+                <input type="text" name="name" id="id_name" class="form-control" value="{{ user.name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="id_phone"><b>Phone Number</b></label>
+                <input type="text" name="phone" id="id_phone" class="form-control" value="{{ user.phone }}" required>
+                {% for error in form.phone.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                {% endfor %}
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <p><a href="{% url 'change_password' %}">Click Here</a> To Change Your Password </p>
+        </form>
+</section>
+</center>
+<script>
+  function myFunction() {
+    var x = document.getElementById("crackpass");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+</script>
 {% endblock content %}

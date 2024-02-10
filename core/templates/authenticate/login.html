@@ -2,7 +2,6 @@
 
 {% block content %}
 
-
 <center>
     {% if messages %}
     {% for message in messages %}
@@ -32,19 +31,15 @@
                 <label for="username"><b>Username</b></label>
                 <input type="text" class="form-control" name="username" id="username" placeholder="Enter your User Name" required>
             </div>
-            <label><b>Password</b></label>
-            <div class="passfield">
-              <input
-                type="password"
-                id="crackpass"
-                placeholder="Enter your Password"
-                required
-              />
-              <span
-                ><i onclick="myFunction()" class="fa-solid fa-eye-slash pe-2"></i
-              ></span>
+            <label for="id_password1"><b>Password</b></label>
+            <div class="form-group passfield">
+                
+                <input type="password" name="password" id="crackpass" class="form-control" placeholder="Enter your Password" required>
+                <span
+                    ><i onclick="myFunction()" class="fa-solid fa-eye-slash"></i
+                    ></span>
+                
             </div>
-            
             <div class="checkbox">
                 <div class="checkit">
                   <input type="checkbox" id="check_input" />

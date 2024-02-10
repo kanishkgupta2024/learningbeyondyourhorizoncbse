@@ -1,22 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<!-- <div class="text-center mt-4">
-    <h2 class="text-muted">Register</h2>
-</div>
-
-<div class="form-control-lg col-md-6 offset-md-3 mb-5 mt-4 h-100 d-inline-block">
-    
-    <form action="{% url 'register' %}" method="POST">
-        
-        {% csrf_token %}
-        {{ form.as_p }}
-    
-        <div class="d-grid gap-2 d-md-flex mt-4 justify-content-center">
-            <button class="btn btn-secondary me-md-2" type="submit">Register</button>
-          </div>
-    </form>
-</div>  -->
 <center>
     <section class="register">
       <h5>Welcome to LBYH-CBSE..!</h5>
@@ -51,9 +35,9 @@
     </div>
 
 
-    <div class="form-group field">
+    <div class="form-group">
         <label for="id_username"><b>Username</b></label>
-        <input type="text" placeholder="Enter your Username" class="form-control " required />
+        <input type="text" name="username" id="id_username" class="form-control" placeholder="Username" required>
         {% for error in form.username.errors %}
             <p class="text-danger">{{ error }}</p>
         {% endfor %}
@@ -87,7 +71,7 @@
         <input type="password" name="password2" id="crackpass" class="form-control" placeholder="Confirm your Password" required>
         <span
               ><i onclick="myFunction()" class="fa-solid fa-eye-slash"></i
-            ></span></input>
+            ></span>
         
     </div>
     {% for error in form.password2.errors %}
