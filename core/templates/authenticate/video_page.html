@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container bg-dark text-light">
+    <div class="main-video-container">
+        {% for video in videos %}
+        <video src="{{video.link}}" loop controls class="main-video"></video>
+        <h3 class="main-vid-title">{{ video.title }}</h3>
+        <div class="like-dislike">
+            <button id="btn" class="up"><i class="fa-solid fa-thumbs-up"></i></button>
+            <button id="btn" class="down"><i class="fa-solid fa-thumbs-down"></i></button>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="video-list-container" id="videosList"></div>
+    
+</div>
+
+{% include 'footer.html' %}'
+{% endblock content %}

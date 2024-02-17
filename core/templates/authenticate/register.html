@@ -1,5 +1,8 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/register.css'%}" />
 
+{% endblock %} 
+{% include 'navbar.html' %}
 {% block content %}
 <center>
     <section class="register">

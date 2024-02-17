@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib import messages
 from .forms import SignUpForm, EditProfileForm, ChangePasswordForm
-from .models import User, Tutors
+from .models import User, Tutors, Videos
 from django.views.decorators.csrf import csrf_exempt
 
 def home(request):
@@ -82,3 +82,9 @@ def change_password(request):
         'form': form,
     }
     return render(request, 'authenticate/change_password.html', context)
+
+
+
+def team(request):
+    return render(request, 'authenticate/team.html')
+

@@ -42,12 +42,12 @@ class EditProfileForm(UserChangeForm):
 
 
 class ChangePasswordForm(PasswordChangeForm):
-    # old_password = forms.CharField(label="Old password:",
-    #                                max_length=32, widget=forms.PasswordInput(attrs={'class': 'form-control'}))
-    # new_password1 = forms.CharField(label="New password:", help_text="<small><ul class='form-text text-muted'><li>Your password can\'t be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can\'t be a commonly used password.</li><li>Your password can\'t be entirely numeric.</li></ul></small>",
-    #                                 max_length=32, widget=forms.PasswordInput(attrs={'class': 'form-control'}))
-    # new_password2 = forms.CharField(label="New password confirmation:",
-    #                                 max_length=32, widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    old_password = forms.CharField(label="Old password:",
+                                   max_length=32, widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    new_password1 = forms.CharField(label="New password:", help_text="<small><ul class='form-text text-muted'><li>Your password can\'t be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can\'t be a commonly used password.</li><li>Your password can\'t be entirely numeric.</li></ul></small>",
+                                    max_length=32, widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    new_password2 = forms.CharField(label="New password confirmation:",
+                                    max_length=32, widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
     class Meta:
         model = User
