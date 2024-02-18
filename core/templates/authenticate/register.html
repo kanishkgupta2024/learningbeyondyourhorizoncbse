@@ -16,11 +16,11 @@
       </div>
       <br />
       <p id="subtitle"><b>Are you ready to take your learning to the next level?</b> <br>
-        Register now and get access to courses your interested in.</p>
+        Register now and get access to courses your intersted in.</p>
 <form method="post" action="{% url 'register' %}" class="input_container">
     {% csrf_token %}
 
-    <div class="form-group ">
+    <div class="form-group field">
         <label for="id_name"><b>Name</b></label>
         <input type="text" name="name" id="id_name" class="form-control" placeholder="Enter your Full Name" required>
         {% for error in form.name.errors %}
@@ -60,9 +60,9 @@
     <label for="id_password1"><b>Password</b></label>
     <div class="form-group passfield1">
         
-        <input type="password" name="password1" id="crackpass" class="form-control" placeholder="Create your Password" required>
+        <input type="password" name="password1" id="crackpass1" class="form-control" placeholder="Create your Password" required>
         <span
-              ><i onclick="myFunction()" class="fa-solid fa-eye-slash pe-2"></i
+              ><i onclick="myFunction1()" class="fa-solid fa-eye-slash pe-2"></i
             ></span>
         {% for error in form.password1.errors %}
             <p class="text-danger">{{ error }}</p>
@@ -71,7 +71,7 @@
     <label for="id_password2"><b>Confirm Password</b></label>
     <div class="form-group passfield2">
         
-        <input type="password" name="password2" id="crackpass" class="form-control" placeholder="Confirm your Password" required>
+        <input type="password" name="password2" id="crackpass2" class="form-control" placeholder="Confirm your Password" required>
         <span
               ><i onclick="myFunction2()" class="fa-solid fa-eye-slash pe-2"></i
             ></span>
@@ -86,9 +86,9 @@
 </section>
 </center>
 <script>
-  function myFunction() {
-        var x = document.getElementById("createPass");
-        var icon = document.querySelector(".passfield1 i");
+  function myFunction1() {
+    var x = document.getElementById("crackpass1");
+    var icon = document.querySelector(".passfield1 i");
 
     if (x.type === "password") {
       x.type = "text";
@@ -99,10 +99,10 @@
       icon.classList.remove("fa-eye");
       icon.classList.add("fa-eye-slash");
     }
-      }
-      function myFunction2() {
-        var x = document.getElementById("confirmPass");
-        var icon = document.querySelector(".passfield2 i");
+  }
+  function myFunction2() {
+    var x = document.getElementById("crackpass2");
+    var icon = document.querySelector(".passfield2 i");
 
     if (x.type === "password") {
       x.type = "text";
@@ -113,7 +113,7 @@
       icon.classList.remove("fa-eye");
       icon.classList.add("fa-eye-slash");
     }
-      }
+  }
 </script>
 
 {% endblock content %}

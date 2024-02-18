@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% load static %} {% block css %}
-<link rel="stylesheet" href="{% static 'css/login.css'%}" />
+<link rel="stylesheet" href="{% static 'css/register.css'%}" />
 
 {% endblock %} 
 {% include 'navbar.html' %}
@@ -17,13 +17,13 @@
   </div>
   {% endfor %}
   {% endif %}
-  <section class="register">
+  <section class="login">
     <h5>Welcome to LBYH-CBSE..!</h5>
     <br />
     <div class="main_button">
       
-      <button id="login_btn">Login</button>
-      <button id="register_btn"><a href="{% url 'register' %}">Register</a></button>
+      <button id="login_btn2">Login</button>
+      <button id="register_btn2"><a href="{% url 'register' %}">Register</a></button>
     </div>
     <br />
     <p id="subtitle"><b>Welcome back!</b> <br> Login to continue your learning adventure.</p>
@@ -39,7 +39,7 @@
               
               <input type="password" name="password" id="crackpass" class="form-control" placeholder="Enter your Password" required>
               <span
-                  ><i onclick="myFunction()" class="fa-solid fa-eye-slash"></i
+                  ><i onclick="myFunction()" class="fa-solid fa-eye-slash pe-2"></i
                   ></span>
               
           </div>
@@ -59,12 +59,17 @@
   <script>
     function myFunction() {
       var x = document.getElementById("crackpass");
-      if (x.type === "password") {
-        x.type = "text";
-      } else {
-        x.type = "password";
-      }
+      var icon = document.querySelector(".passfield i");
+    if (x.type === "password") {
+      x.type = "text";
+      icon.classList.remove("fa-eye-slash");
+      icon.classList.add("fa-eye");
+    } else {
+      x.type = "password";
+      icon.classList.remove("fa-eye");
+      icon.classList.add("fa-eye-slash");
     }
+      }
   </script>
  
 {% endblock content %}
