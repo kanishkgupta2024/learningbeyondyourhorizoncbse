@@ -89,5 +89,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
+if(email  && emailRegex.test(email)) {
+  document.getElementById('warning').style.display = 'none';
+  document.getElementById('success').style.display = 'block';
+  setTimeout(function() {
+      success.style.display = 'none';
+  }, 3000);
+}
+else{
+document.getElementById('warning').style.display = 'block';
+  setTimeout(function() {
+      success.style.display = 'none';
+  }, 3000);
+}
 

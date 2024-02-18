@@ -21,4 +21,5 @@ urlpatterns = [
          name='password_reset_complete'),
     path('team/', views.team, name='team'),
     path('contact-us/', views.contact, name='contact'),
+    path('video/', views.videopage, name='video'),
 ]

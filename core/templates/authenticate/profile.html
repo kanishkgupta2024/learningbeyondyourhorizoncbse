@@ -27,7 +27,6 @@
               value="{{ user.name }}"
             />
           </div>
-          
         </div>
         <h5 class="pt-lg-3 my_pro_primary fw-medium">Username</h5>
         <input
@@ -86,17 +85,20 @@
               <input
                 type="password"
                 id="key1"
-                name="password1"
+                name="old_password"
                 class="form-control fw-light"
                 placeholder=""
               />
-              <span class="input-group-text"
+              <span class="input-group-text passfield1"
                 ><i
                   class="fa-solid fa-eye-slash text-secondary"
-                  onclick="myFunction()"
+                  onclick="myFunction();"
                 ></i
               ></span>
             </div>
+            {% for error in form.old_password.errors %}
+            <p class="text-danger">{{ error }}</p>
+            {% endfor %}
           </div>
           <div class="form-group col-md-6">
             <h5>New Password</h5>
@@ -106,18 +108,21 @@
               ></span>
               <input
                 type="password"
-                name="password2"
+                name="new_password1"
                 id="key2"
                 class="form-control fw-light"
                 placeholder=""
               />
-              <span class="input-group-text"
+              <span class="input-group-text passfield2"
                 ><i
                   class="fa-solid fa-eye-slash text-secondary"
                   onclick="myFunction2()"
                 ></i
               ></span>
             </div>
+            {% for error in form.new_password1.errors %}
+            <p class="text-danger">{{ error }}</p>
+            {% endfor %}
           </div>
         </div>
         <h5 class="pt-lg-3 my_pro_primary fw-medium">Confirm New Password</h5>
@@ -127,17 +132,21 @@
           ></span>
           <input
             type="password"
+            name="new_password2"
             id="key3"
             class="form-control fw-light"
             placeholder=""
           />
-          <span class="input-group-text"
+          <span class="input-group-text passfield3"
             ><i
               class="fa-solid fa-eye-slash text-secondary"
               onclick="myFunction3()"
             ></i
           ></span>
         </div>
+        {% for error in form.new_password2.errors %}
+        <p class="text-danger">{{ error }}</p>
+        {% endfor %}
       </div>
       <div class="row justify-content-end px-4">
         <div class="col-auto">
@@ -154,4 +163,51 @@
     </form>
   </div>
 </div>
-{% endblock content %}
+{% block javascript %}
+<script>
+  function myFunction() {
+    var x = document.getElementById("key1");
+    var icon = document.querySelector(".passfield1 i");
+
+    if (x.type === "password") {
+      x.type = "text";
+      icon.classList.remove("fa-eye-slash");
+      icon.classList.add("fa-eye");
+    } else {
+      x.type = "password";
+      icon.classList.remove("fa-eye");
+      icon.classList.add("fa-eye-slash");
+    }
+  }
+
+  function myFunction2() {
+    var x = document.getElementById("key2");
+    var icon = document.querySelector(".passfield2 i");
+
+    if (x.type === "password") {
+      x.type = "text";
+      icon.classList.remove("fa-eye-slash");
+      icon.classList.add("fa-eye");
+    } else {
+      x.type = "password";
+      icon.classList.remove("fa-eye");
+      icon.classList.add("fa-eye-slash");
+    }
+  }
+
+  function myFunction3() {
+    var x = document.getElementById("key3");
+    var icon = document.querySelector(".passfield3 i");
+
+    if (x.type === "password") {
+      x.type = "text";
+      icon.classList.remove("fa-eye-slash");
+      icon.classList.add("fa-eye");
+    } else {
+      x.type = "password";
+      icon.classList.remove("fa-eye");
+      icon.classList.add("fa-eye-slash");
+    }
+  }
+</script>
+{% endblock %} {% endblock content %}

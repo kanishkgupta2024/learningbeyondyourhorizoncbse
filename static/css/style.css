@@ -453,7 +453,10 @@ footer{
   display: none;
   color: #22B286;
 }
-
+.warning{
+  display: none;
+  color: red;
+}
 
 /********** Responsive Design ********/
 @media(max-width:900px)

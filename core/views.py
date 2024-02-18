@@ -57,8 +57,11 @@ def profile(request):
         form = EditProfileForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            messages.success(request, "Profile Updated Successfully")
+            update_session_auth_hash(request, form)
+            messages.success(request, "Profile updated successfully")
             return redirect('home')
+        else:
+            messages.error(request, 'Please correct the error below.')
     else:
         form = EditProfileForm(instance=request.user)
     context = {
@@ -91,6 +94,7 @@ def team(request):
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
+
         if form.is_valid(): 
             
             form.save()
@@ -99,3 +103,7 @@ def contact(request):
     form = ContactForm()
     context = {'form': form}
     return render(request, 'authenticate/contactus.html', context)
+
+
+def videopage(request):
+    return render(request, 'authenticate/video_page.html')
