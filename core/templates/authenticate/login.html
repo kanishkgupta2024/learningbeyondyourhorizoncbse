@@ -17,13 +17,13 @@
   </div>
   {% endfor %}
   {% endif %}
-  <section class="login">
+  <section class="register">
     <h5>Welcome to LBYH-CBSE..!</h5>
     <br />
     <div class="main_button">
       
-      <button id="login_btn2">Login</button>
-      <button id="register_btn2"><a href="{% url 'register' %}">Register</a></button>
+      <button id="login_btn">Login</button>
+      <a href="{% url 'register' %}"><button id="register_btn">Register</button></a>
     </div>
     <br />
     <p id="subtitle"><b>Welcome back!</b> <br> Login to continue your learning adventure.</p>
