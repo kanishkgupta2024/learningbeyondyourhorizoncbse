@@ -16,7 +16,8 @@ class Tutors(models.Model):
     linkdin = models.CharField(max_length=500 , null=True , blank=True)
     Xaccount = models.CharField(max_length=500 , null=True , blank=True)
 
-class Videos(models.Model):
-    title = models.CharField(max_length=100)
-    link = models.CharField(max_length=500)
-    desc = models.CharField(max_length=2000)
+class Contact(models.Model):
+    first_name = models.CharField(max_length=250,default='test')
+    last_name = models.CharField(max_length=250)
+    email = models.EmailField()
+    message = models.TextField(max_length=3000)

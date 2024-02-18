@@ -1,6 +1,6 @@
 <nav class="navbar bg-white navbar-expand-sm sticky-top fw-bold">
     <div class="container-fluid">
-      <a href="#" class="navbar-brand fs-2"
+      <a href="{% url 'home' %}" class="navbar-brand fs-2"
         >L<span class="text-success">B</span>YH-CBSE</a
       >
       <button
@@ -75,7 +75,7 @@
             </ul>
           </li>
           <li class="nav-link mt-1 px-lg-5">
-            <a href="#" class="text-decoration-none text-success"
+            <a href="{% url 'contact' %}" class="text-decoration-none text-success"
               >Contact Us</a
             >
           </li>
@@ -84,6 +84,9 @@
           ></div>
           <br />
           {% if request.user.is_authenticated %}
+          <li class="nav-item px-3">
+            <a href="{% url 'profile' %}"><button class="btn btn-success btn-lg" >Profile</button></a>
+        </li>
                     <li class="nav-item px-3">
                         <a href="{% url 'logout' %}"><button class="btn btn-success btn-lg" >Logout</button></a>
                     </li>

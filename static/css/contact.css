@@ -5,7 +5,10 @@
    
   }
   body{
-    background-image: url(image/background.png);
+   
+      background-image: url(./../images/background.png);
+ 
+    
   }
   
   .contactUs {
@@ -205,7 +208,7 @@
   @media (max-width: 991px) {
     body {
       background: white;
-      background-image: url(image/background.png);
+      background-image: url("./../images/background.png");
       
      
     }

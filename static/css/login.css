@@ -9,7 +9,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-image: url("./../images/background.png");
+  background-image: url("images/background.png");
 }
 
 .register {
@@ -76,7 +76,7 @@ body {
   gap: 0.5rem;
 }
 
-input {
+.form-group {
   height: 2rem;
   border-radius: 20px;
   padding-left: 1rem;

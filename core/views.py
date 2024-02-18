@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib import messages
-from .forms import SignUpForm, EditProfileForm, ChangePasswordForm
-from .models import User, Tutors, Videos
+from .forms import SignUpForm, EditProfileForm, ChangePasswordForm, ContactForm
+from .models import User, Tutors, Contact
 from django.views.decorators.csrf import csrf_exempt
 
 def home(request):
@@ -52,7 +52,7 @@ def register_user(request):
         'form': form,
     })
 
-def edit_profile(request):
+def profile(request):
     if request.method == 'POST':
         form = EditProfileForm(request.POST, instance=request.user)
         if form.is_valid():
@@ -64,7 +64,7 @@ def edit_profile(request):
     context = {
         'form': form,
     }
-    return render(request, 'authenticate/edit_profile.html', context)
+    return render(request, 'authenticate/profile.html', context)
 
 
 def change_password(request):
@@ -88,3 +88,14 @@ def change_password(request):
 def team(request):
     return render(request, 'authenticate/team.html')
 
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid(): 
+            
+            form.save()
+            
+            return redirect('home')
+    form = ContactForm()
+    context = {'form': form}
+    return render(request, 'authenticate/contactus.html', context)
